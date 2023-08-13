@@ -47,7 +47,8 @@ def crop_diagonal(x1,y1,x2,y2,x3,y3,x4,y4,img_path, img_save):
     cv.imwrite(img_save, img)
 
 
-img_path = r"G:\Lab\API-OCR\test\test_API\main-test\20230720_075633.jpg" # Absolute path to original image
-img_save = r"G:\Lab\API-OCR\test\crop1.jpg" # Absoluate save path to save the cropped imgage
+img_path = "Path_to_original_image"
+img_save = "Save_path_to_save_the_cropped_image"
+# Example how to run: 
 crop_diagonal(1457,1542,3235,1627,3229,1741,1452,1656,img_path, img_save)
 # NOTE: Read the comment of the function to determine types of coordinate
