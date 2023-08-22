@@ -33,10 +33,12 @@ def crop_diagonal(x1,y1,x2,y2,x3,y3,x4,y4,img_path, img_save):
     #Rotate the cropped image
     rotated_img = imutils.rotate_bound(img, angle)
     shape = rotated_img.shape
-
+    # cv.imwrite(img_save, rotated_img)
     # Recaculate the coordinates
-    angle = (-angle*math.pi)/180
-    b = math.ceil(origin_height/math.tan(math.pi/2-angle))
+    angle = (abs(angle)*math.pi)/180
+    if y2 < y1:
+        angle = (math.pi/2) - angle
+    b = math.ceil(math.sin(angle)*math.cos(angle)*origin_height)
     a = math.ceil(math.sin(angle)*math.cos(angle)*origin_width)
     c = a + origin_height
     d = b + origin_width
